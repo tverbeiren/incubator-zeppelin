@@ -49,6 +49,10 @@ limitations under the License.
     <link rel="stylesheet" href="styles/custom-font.css">
     <!-- endbuild -->
     <link rel="stylesheet" ng-href="styles/looknfeel/{{looknfeel}}.css">
+
+    <!-- Enable the use of custom web components and Polymer -->
+    <link rel="import" href="elements.html">
+
   </head>
   <body ng-class="{'bodyAsIframe': asIframe}" >
     <!--[if lt IE 7]>
@@ -136,6 +140,8 @@ limitations under the License.
     <script src="bower_components/angular-elastic-input/dist/angular-elastic-input.min.js"></script>
     <script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
     <script src="bower_components/highlightjs/highlight.pack.js"></script>
+    <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+    <script src="bower_components/polymer/polymer.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:js({.tmp,app}) scripts/scripts.js -->

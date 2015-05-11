@@ -310,7 +310,8 @@ module.exports = function (grunt) {
             'images/*',
             'fonts/*',
             'WEB-INF/*',
-            'scripts/ace/{,*/}/{,*/}/*'
+            'scripts/ace/{,*/}/{,*/}/*',
+            'bower_components/{,*/}/{,*/}/*'
           ]
         }, {
           expand : true,
