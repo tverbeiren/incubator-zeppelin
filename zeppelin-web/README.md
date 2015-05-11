@@ -1,6 +1,69 @@
 # Zeppelin Web Application
 This is a Zeppelin web frontend project.
 
+## About this fork
+
+This fork enables the integration of custom elements (aka Polymer elements).
+
+The general procedure is:
+
+- include the necessary components in `bower.json` (see the example below)
+- include the required import statements in `app\elements.html`
+- run `grunt build`
+- refresh the notebook
+
+Using the components is actually pretty straight-forward:
+
+```html
+%angular
+<div id="mydiv" style="height:400px; width:100">
+    <google-map></google-map>
+</div>
+```
+
+Or, for the _polimero_ components:
+
+```html
+%angular
+
+<div id="mydiv" style="height:400; width:600">
+<template is="auto-binding">
+    <polimero-data url="bower_components/polimero/data/data.csv" data="{{data}}"></polimero-data>
+    <polimero-parcoords
+        dimensions='["sepalLength","sepalWidth","petalLength","petalWidth"]'
+        options='{"width": 600, "height": 300}'
+        data="{{data}}"
+        selected="{{selected}}"></polimero-parcoords>
+</template>
+</div>
+```
+
+In other words, the only difference is the additional `<div>` tag, the rest is just taken from the examples provided with the components. That's it!
+
+The examples that are provided are made possible using the following configuration:
+
+`bower.json`:
+
+```json
+{
+  "name": "zeppelin-web",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "1.3.8",
+    . . .
+    "google-map": "~0.4.2",
+    "polimero": "file:///Users/toni/Hadoop/polimero/.git"
+  },
+```
+
+`elements.html`:
+
+```html
+<link rel="import" href="bower_components/polimero/polimero.html">
+<link rel="import" href="bower_components/google-map/google-map.html">
+```
+
+
 
 ## Compile Zeppelin web
 If you want to compile the WebApplication, you will have to simply run `mvn package`.
